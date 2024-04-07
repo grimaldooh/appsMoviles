@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { globalStyles} from '../styles/global';
+
 
 function CalcView() {
+	
 	const [displayValue, setDisplayValue] = useState('0');
 	const [operand1, setOperand1] = useState('');
 	const [operand2, setOperand2] = useState('');
@@ -61,7 +64,8 @@ function CalcView() {
 	};
 
 	return (
-		<View style={styles.container}>
+		<View style={styles.container}>  
+			
 			<Text style={styles.display}>{displayValue}</Text>
 			<View style={styles.buttonRow}>
 				<TouchableOpacity style={styles.button} onPress={() => handleNumberPress('1')}>
@@ -119,6 +123,14 @@ function CalcView() {
 					<Text style={styles.buttonText}>/</Text>
 				</TouchableOpacity>
 			</View>
+
+			<View style={globalStyles.footer}>
+				<Text style={globalStyles.text}>Texto 1</Text>
+				<Text style={globalStyles.text}>Texto 2</Text>
+   				<Text style={globalStyles.text}>Texto 3</Text>
+				<Text style={globalStyles.text}>Texto 4</Text>
+				<Text style={globalStyles.text}>Texto 5</Text>
+			</View>
 		</View>
 	);
 }
@@ -126,9 +138,9 @@ function CalcView() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'center',
+		marginTop: 30,
 		alignItems: 'center',
-		backgroundColor: '#1e2935',
+		
 	},
 	display: {
 		fontSize: 40,

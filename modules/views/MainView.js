@@ -3,6 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CalcView from './CalcView';
 import HomeView from './HomeView';
+import LoginView from './LoginView';
+import RegisterView from './RegisterView';
+import HomeUserView from './HomeUserView';
 import { StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
@@ -10,7 +13,7 @@ const Stack = createNativeStackNavigator();
 function MainView() {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Inicio">
+			<Stack.Navigator initialRouteName="Home">
 				<Stack.Screen
 					name="Inicio"
 					component={HomeView}
@@ -20,8 +23,32 @@ function MainView() {
 					}}
 				/>
 				<Stack.Screen
-					name="Home"
+					name="Calculadora"
 					component={CalcView}
+					options={{
+						headerStyle: styles.headerStyle,
+						headerTitleStyle: styles.headerTitleStyle,
+					}}
+				/>
+				<Stack.Screen
+					name="Iniciar sesión"
+					component={LoginView}
+					options={{
+						headerStyle: styles.headerStyle,
+						headerTitleStyle: styles.headerTitleStyle,
+					}}
+				/>
+				<Stack.Screen
+					name="Registrarse"
+					component={RegisterView}
+					options={{
+						headerStyle: styles.headerStyle,
+						headerTitleStyle: styles.headerTitleStyle,
+					}}
+				/>
+				<Stack.Screen
+					name="Home"
+					component={HomeUserView}
 					options={{
 						headerStyle: styles.headerStyle,
 						headerTitleStyle: styles.headerTitleStyle,
