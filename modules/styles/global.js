@@ -42,6 +42,7 @@ export const globalStyles = StyleSheet.create({
 		borderRadius: 30,
 		borderColor: 'black',
 		borderWidth: 1,
+		alignSelf: 'center',
 	},
 	footerImage: {
 		width: 30,
@@ -84,6 +85,15 @@ export const globalStyles = StyleSheet.create({
 	link: {
 		color: colors.secondary,
 		marginTop: 20,
+	},
+	title: {
+		fontSize: 24,
+		color: "black",
+		fontWeight: 'bold',
+		marginTop: 15,
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
+        alignSelf : "center",
 	},
 });
 
