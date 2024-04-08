@@ -6,6 +6,9 @@ import HomeView from './HomeView';
 import LoginView from './LoginView';
 import RegisterView from './RegisterView';
 import HomeUserView from './HomeUserView';
+import ProximasView from './ProximasView';
+import SolicitadasView from './SolicitadasView';
+import SettingsView from './SettingsView';
 import { StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
@@ -13,7 +16,7 @@ const Stack = createNativeStackNavigator();
 function MainView() {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Home">
+			<Stack.Navigator initialRouteName="Iniciar sesión">
 				<Stack.Screen
 					name="Inicio"
 					component={HomeView}
@@ -36,6 +39,7 @@ function MainView() {
 					options={{
 						headerStyle: styles.headerStyle,
 						headerTitleStyle: styles.headerTitleStyle,
+						headerBackVisible:false
 					}}
 				/>
 				<Stack.Screen
@@ -44,6 +48,7 @@ function MainView() {
 					options={{
 						headerStyle: styles.headerStyle,
 						headerTitleStyle: styles.headerTitleStyle,
+						
 					}}
 				/>
 				<Stack.Screen
@@ -54,6 +59,43 @@ function MainView() {
 						headerTitleStyle: styles.headerTitleStyle,
 					}}
 				/>
+				{/* <Stack.Screen
+					name="Calendario"
+					component={CalendarioView}
+					options={{
+						headerStyle: styles.headerStyle,
+						headerTitleStyle: styles.headerTitleStyle,
+					}}
+				/> */}
+				<Stack.Screen
+					name="Citas proximas"
+					component={ProximasView}
+					options={{
+						headerStyle: styles.headerStyle,
+						headerTitleStyle: styles.headerTitleStyle,
+						headerBackVisible:false
+					}}
+				/>
+				<Stack.Screen 
+					name="Citas solicitadas"
+					component={SolicitadasView}
+					options={{
+						headerStyle: styles.headerStyle,
+						headerTitleStyle: styles.headerTitleStyle,
+						headerBackVisible:false
+					}}
+				/>
+				<Stack.Screen 
+					name="Ajustes"
+					component={SettingsView}
+					options={{
+						headerStyle: styles.headerStyle,
+						headerTitleStyle: styles.headerTitleStyle,
+						headerBackVisible:false
+					}}
+				/>
+				
+
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
