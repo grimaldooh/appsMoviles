@@ -9,6 +9,7 @@ import HomeUserView from './HomeUserView';
 import ProximasView from './ProximasView';
 import SolicitadasView from './SolicitadasView';
 import SettingsView from './SettingsView';
+import TestView from './TestView';
 import { StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,7 @@ const Stack = createNativeStackNavigator();
 function MainView() {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Iniciar sesión">
+			<Stack.Navigator initialRouteName="Home">
 				<Stack.Screen
 					name="Inicio"
 					component={HomeView}
@@ -48,7 +49,7 @@ function MainView() {
 					options={{
 						headerStyle: styles.headerStyle,
 						headerTitleStyle: styles.headerTitleStyle,
-						
+						title: ""
 					}}
 				/>
 				<Stack.Screen
@@ -88,6 +89,15 @@ function MainView() {
 				<Stack.Screen 
 					name="Ajustes"
 					component={SettingsView}
+					options={{
+						headerStyle: styles.headerStyle,
+						headerTitleStyle: styles.headerTitleStyle,
+						headerBackVisible:false
+					}}
+				/>
+				<Stack.Screen 
+					name="Test"
+					component={TestView}
 					options={{
 						headerStyle: styles.headerStyle,
 						headerTitleStyle: styles.headerTitleStyle,

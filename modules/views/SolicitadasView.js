@@ -7,11 +7,11 @@ import {
   TextInput,
   Image,ScrollView
 } from "react-native";
-import Footer, { globalStyles, colors, footer } from "../styles/global";
+import { globalStyles, colors, footer } from "../styles/global";
+import Footer from "../componentes/global";
 import { useNavigation } from "@react-navigation/native";
 import { homeView } from "../styles/home";
-import CitasProximas from "../styles/home";
-import { CitasSolicitadasHoy } from "../styles/home";
+import { CitasSolicitadasHoy } from "../componentes/solicitadas";
 
 
 function SolicitadasView() {
