@@ -14,7 +14,7 @@ export default function Footer() {
     const navigation = useNavigation();
     return (
         <View style={[globalStyles.footer, { color: "black" }]}>
-            <TouchableOpacity style={{ width: 25, height: 28, marginLeft: 18}} onPress={() => navigation.navigate("Iniciar sesión")}>
+            <TouchableOpacity style={{ width: 25, height: 28, marginLeft: 18}} onPress={() => navigation.navigate("Calendario")}>
                 <Image source={button_icon4} style={globalStyles.footerImage} />
             </TouchableOpacity>
 			<TouchableOpacity style={{ width: 25, height: 28}} onPress={() => navigation.navigate("Citas solicitadas")}>

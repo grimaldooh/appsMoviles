@@ -15,7 +15,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCalendarsUsageDescription": "Esta aplicación requiere acceso al calendario para funcionar correctamente.",
+        "NSRemindersUsageDescription": "Esta aplicación requiere acceso a los recordatorios para funcionar correctamente."
+      }
     },
     "android": {
       "adaptiveIcon": {

@@ -14,6 +14,7 @@ export default function RegisterView() {
             <TextInput style={styles.input} placeholder="Profesión" />
             <TextInput style={styles.input} placeholder="Dirección" />
             <TextInput style={styles.input} placeholder="Contraseña" secureTextEntry={true} />
+            <TextInput style={styles.input} placeholder="Confirmar contraseña" secureTextEntry={true} />
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText} onPress={() => navigation.navigate('Home')}>Registrarse</Text>
             </TouchableOpacity>
@@ -24,7 +25,7 @@ export default function RegisterView() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        
         padding: 20,
     },
     title: {

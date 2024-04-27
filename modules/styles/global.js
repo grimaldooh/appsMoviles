@@ -112,7 +112,7 @@ export const citaGestor = StyleSheet.create({
 	  
 	},
 	citasTop:{
-	  width: '70%',
+	  width: '90%',
 	  color: '#1e2935',
 	  marginTop : 5,
 	  marginBottom : 5,

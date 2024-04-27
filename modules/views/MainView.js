@@ -10,6 +10,7 @@ import ProximasView from './ProximasView';
 import SolicitadasView from './SolicitadasView';
 import SettingsView from './SettingsView';
 import TestView from './TestView';
+import CalendarioView from './CalendarioView';
 import { StyleSheet } from 'react-native';
 
 const Stack = createNativeStackNavigator();
@@ -17,7 +18,7 @@ const Stack = createNativeStackNavigator();
 function MainView() {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Home">
+			<Stack.Navigator initialRouteName="Calendario">
 				<Stack.Screen
 					name="Inicio"
 					component={HomeView}
@@ -58,16 +59,18 @@ function MainView() {
 					options={{
 						headerStyle: styles.headerStyle,
 						headerTitleStyle: styles.headerTitleStyle,
+						headerBackVisible:false
+
 					}}
 				/>
-				{/* <Stack.Screen
+				 <Stack.Screen
 					name="Calendario"
 					component={CalendarioView}
 					options={{
 						headerStyle: styles.headerStyle,
 						headerTitleStyle: styles.headerTitleStyle,
 					}}
-				/> */}
+				/> 
 				<Stack.Screen
 					name="Citas proximas"
 					component={ProximasView}
