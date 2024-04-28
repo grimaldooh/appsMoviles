@@ -6,6 +6,8 @@ import button_icon from '../../Imagenes/FastBooking.jpeg';
 
 function HomeView() {
     const navigation = useNavigation();
+
+    
     return (
         <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Iniciar sesión')}>
             <Image source={button_icon} style={styles.image} resizeMode="contain" />

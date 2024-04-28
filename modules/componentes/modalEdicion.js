@@ -7,7 +7,7 @@ import {
   Modal,
   TextInput,
   Platform,
-  Alert
+  Alert,
 } from "react-native";
 import {
   Divider,
@@ -16,13 +16,19 @@ import {
   Stack,
   Button,
   Text,
-  
 } from "native-base";
 import { settingsStyle } from "../styles/settings";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import backArrow from "../../Imagenes/backArrow.png";
 
-const ModalEdicion = ({ cita, onClose, modalVisible, citas, setCitas, oldCita }) => {
+const ModalEdicion = ({
+  cita,
+  onClose,
+  modalVisible,
+  citas,
+  setCitas,
+  oldCita,
+}) => {
   const [date, setDate] = useState(new Date());
   const [isDatePickerVisible, setIsDatePickerVisible] = useState(false);
   const [isDateChangeAllowed, setIsDateChangeAllowed] = useState(false);
@@ -43,20 +49,18 @@ const ModalEdicion = ({ cita, onClose, modalVisible, citas, setCitas, oldCita })
   // modalVisible = true;
 
   const onDateChange = (event, selectedDate) => {
+    setIsDateChangeAllowed(true);
     if (isDateChangeAllowed) {
       const currentDate = selectedDate || date;
       setIsDatePickerVisible(Platform.OS === "ios");
       setFecha(
-        selectedDate.toLocaleString("en-US", {
-          timeZone: "America/Tijuana",
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-        })
+        `${currentDate.getFullYear()}-${(
+          "0" +
+          (currentDate.getMonth() + 1)
+        ).slice(-2)}-${("0" + currentDate.getDate()).slice(-2)}, ${(
+          "0" + currentDate.getHours()
+        ).slice(-2)}:${("0" + currentDate.getMinutes()).slice(-2)}`
       );
-
       setIsDateChangeAllowed(false);
     }
   };
@@ -65,12 +69,10 @@ const ModalEdicion = ({ cita, onClose, modalVisible, citas, setCitas, oldCita })
     Alert.alert(
       "Petición enviada",
       "Tu solicitud de reagendación ha sido enviada al cliente. Espera su respuesta.",
-      [
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
+      [{ text: "OK", onPress: () => console.log("OK Pressed") }],
       { cancelable: false }
     );
-  }
+  };
 
   const handleGuardar = () => {
     const indexCita = citas.findIndex((c) => c.id === cita.id);
@@ -82,7 +84,7 @@ const ModalEdicion = ({ cita, onClose, modalVisible, citas, setCitas, oldCita })
     setState("reagendada");
     console.log("Cita actualizada:", { fecha, nombre, state });
     setIsDatePickerVisible(false);
-    
+
     onClose();
     confirmarCita();
   };
@@ -110,7 +112,6 @@ const ModalEdicion = ({ cita, onClose, modalVisible, citas, setCitas, oldCita })
               style={{
                 position: "absolute",
                 padding: 10,
-                
               }}
             >
               <TouchableOpacity onPress={onClose}>
@@ -127,13 +128,25 @@ const ModalEdicion = ({ cita, onClose, modalVisible, citas, setCitas, oldCita })
               </TouchableOpacity>
             </View>
             <View style={[{ width: 250, marginTop: 15 }]}>
-              
-
-              <Text style={{ fontWeight: "bold", alignSelf: "center" , fontSize: 20}}>
+              <Text
+                style={{
+                  fontWeight: "bold",
+                  alignSelf: "center",
+                  fontSize: 20,
+                }}
+              >
                 Modificar cita
               </Text>
 
-              <Text style={{alignSelf: "flex-start", marginTop: 25, fontWeight: "bold"}}>Informacion de la cita </Text>
+              <Text
+                style={{
+                  alignSelf: "flex-start",
+                  marginTop: 25,
+                  fontWeight: "bold",
+                }}
+              >
+                Informacion de la cita{" "}
+              </Text>
 
               <View style={{ flexDirection: "row", marginTop: 10 }}>
                 <Text style={{ fontWeight: "bold" }}>Nombre : </Text>
@@ -174,7 +187,7 @@ const ModalEdicion = ({ cita, onClose, modalVisible, citas, setCitas, oldCita })
               onChangeText={setFecha}
               placeholder={cita ? cita.fecha : ""}
             /> */}
-            
+
             <Button
               onPress={showDatePicker}
               style={{
@@ -187,31 +200,31 @@ const ModalEdicion = ({ cita, onClose, modalVisible, citas, setCitas, oldCita })
             >
               <Text style={{ textAlign: "left" }}>Cambiar fecha y hora</Text>
             </Button>
-            <View style={{width: "85%"}}>
-            {isDatePickerVisible && (
-              <DateTimePicker
-                testID="datePicker"
-                value={date}
-                mode={"datetime"}
-                is24Hour={true}
-                display="default"
-                onChange={onDateChange}
-              />
-            )}
+            <View style={{ width: "85%" }}>
+              {isDatePickerVisible && (
+                <DateTimePicker
+                  testID="datePicker"
+                  value={date}
+                  mode={"datetime"}
+                  is24Hour={true}
+                  display="default"
+                  onChange={onDateChange}
+                />
+              )}
             </View>
             <View
               style={{ flexDirection: "row", justifyContent: "space-around" }}
             >
               {isOldCita && (
-              <Button
-                onPress={onClose}
-                style={{ marginTop: 15 }}
-                size="sm"
-                variant="subtle"
-                colorScheme="red"
-              >
-                <Text>Cancelar cita</Text>
-              </Button>
+                <Button
+                  onPress={onClose}
+                  style={{ marginTop: 15 }}
+                  size="sm"
+                  variant="subtle"
+                  colorScheme="red"
+                >
+                  <Text>Cancelar cita</Text>
+                </Button>
               )}
               <Button
                 onPress={() => {

@@ -1,62 +1,88 @@
 import React, { useState } from "react";
-import { Button, Platform, View , Text} from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  TextInput,
+  Image,ScrollView
+} from "react-native";
+import { globalStyles, colors, footer ,citaGestor} from "../styles/global";
+import Footer from "../componentes/global";
+import { useNavigation } from "@react-navigation/native";
+import { homeView } from "../styles/home";
+import {CitasProximas, Aligner} from "../componentes/proximas";
+import {CitasSolicitadasHoy} from "../componentes/solicitadas";
+import { CitasCalendario } from "../componentes/citasCalendario";
 
-export default function TestView() {
-  const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState(new Date());
-  const [isDatePickerVisible, setIsDatePickerVisible] = useState(false);
-  const [isTimePickerVisible, setIsTimePickerVisible] = useState(false);
 
-  const onDateChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setIsDatePickerVisible(Platform.OS === "ios");
-    setDate(currentDate);
-    console.log(
-      currentDate.toLocaleString("en-US", { timeZone: "America/Tijuana" })
-    );
-  };
 
-  const onTimeChange = (event, selectedTime) => {
-    const currentTime = selectedTime || time;
-    setIsTimePickerVisible(Platform.OS === "ios");
-    setTime(currentTime);
-  };
+function TestView() {
+  const navigation = useNavigation();
 
-  const showDatePicker = () => {
-    setIsDatePickerVisible(true);
-  };
-
-  const showTimePicker = () => {
-    setIsTimePickerVisible(true);
-  };
+  const [citas, setCitasProximas] = useState([
+    {
+      nombre: "Angel Grimaldo ",
+      fecha: "Hoy : 10:45 a.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 1,
+    },
+    {
+      nombre: "Azael Espergencia",
+      fecha: "Hoy : 12:30 p.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 2,
+    },
+    {
+      nombre: "Tilin Gonzalez",
+      fecha: "Mañana : 4:30 p.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 3,
+    },
+    {
+      nombre: "Elon Musk",
+      fecha: "14,4,24 : 10:30 a.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 4,
+    },
+    {
+      nombre: "Gabriel Huicochea",
+      fecha: "Hoy : 10:45 a.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 5,
+    },
+    {
+      nombre: "Azael Hernandez",
+      fecha: "Hoy : 12:30 p.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 6,
+    },
+    {
+      nombre: "Tilin Gonzalez",
+      fecha: "Mañana : 4:30 p.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 7,
+    },
+    {
+      nombre: "Elon Musk",
+      fecha: "14,4,24 : 10:30 a.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 8,
+    },
+  ]);
 
   return (
-    <View>
-      <Button onPress={showDatePicker} title="Show date picker!" />
-      {isDatePickerVisible && (
-        <DateTimePicker
-          testID="datePicker"
-          value={date}
-          mode={"datetime"}
-          is24Hour={true}
-          display="default"
-          onChange={onDateChange}
-        />
-      )}
-      <Button onPress={showTimePicker} title="Show time picker!" />
-      {isTimePickerVisible && (
-        <DateTimePicker
-          testID="timePicker"
-          value={time}
-          mode={"time"}
-          is24Hour={true}
-          display="default"
-          onChange={onTimeChange}
-        />
-      )}
+    <View style={homeView.container}>
+      <View style ={{height:"90%", width :"80%"}}>
+     
+      
+      <CitasCalendario citas={citas} setCitasProximas={setCitasProximas} />       
+    
+      </View>
 
-      <Text>Fecha seleccionada: {date.toLocaleString()}</Text>
+      <Footer />
     </View>
   );
 }
+
+export default TestView;

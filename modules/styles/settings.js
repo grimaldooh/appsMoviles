@@ -51,6 +51,22 @@ export const settingsStyle = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5
       },
+      citasModalView: {
+        margin: 35,
+        backgroundColor: "white",
+        borderRadius: 15,
+        padding: 5,
+        marginTop: "22%",
+        shadowColor: "#000",
+        marginBottom: "35%",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        
+      },
       modalText: {
         marginBottom: 15,
         textAlign: "center"
@@ -60,6 +76,9 @@ export const settingsStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.5)', // Esto crea un fondo negro semi-transparente
+      },
+      citasOverlay: {
+
       },
       input: {
         height: 40,

@@ -28,7 +28,7 @@ import crossmark from "../../Imagenes/crossmark.webp";
 import { settingsStyle } from "../styles/settings";
 import ModalEdicion from "./modalEdicion";
 
-export function CitasSolicitadasHoy() {
+export function CitasSolicitadasHoy({citas, setCitasSolicitadasHoy}) {
   const [modalEdicionVisible, setModalEdicionVisible] = useState(false);
   const [selectedCitaId, setSelectedCitaId] = useState(null);
   const [selectedCita, setSelectedCita] = useState(null);
@@ -49,36 +49,36 @@ export function CitasSolicitadasHoy() {
     }
   };
 
-  const [citas, setCitas] = useState([
-    {
-      nombre: "Bart Simpson",
-      fecha: "hoy : 10:45 a.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 1,
-      state: "",
-    },
-    {
-      nombre: "Lionel Messi",
-      fecha: "hoy : 12:30 p.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 2,
-      state: "",
-    },
-    {
-      nombre: "CR7",
-      fecha: "mañana : 4:30 p.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 3,
-      state: "",
-    },
-    {
-      nombre: "Elon Musk",
-      fecha: "14,4,24 11:00 a.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 4,
-      state: "",
-    },
-  ]);
+  // const [citas, setCitasSolicitadasHoy] = useState([
+  //   {
+  //     nombre: "Bart Simpson",
+  //     fecha: "hoy : 10:45 a.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 1,
+  //     state: "",
+  //   },
+  //   {
+  //     nombre: "Lionel Messi",
+  //     fecha: "hoy : 12:30 p.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 2,
+  //     state: "",
+  //   },
+  //   {
+  //     nombre: "CR7",
+  //     fecha: "mañana : 4:30 p.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 3,
+  //     state: "",
+  //   },
+  //   {
+  //     nombre: "Elon Musk",
+  //     fecha: "14,4,24 11:00 a.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 4,
+  //     state: "",
+  //   },
+  // ]);
 
   return (
     <NativeBaseProvider>
@@ -242,7 +242,7 @@ export function CitasSolicitadasHoy() {
                   onClose={closeModal}
                   modalVisible={modalEdicionVisible}
                   citas={citas}
-                  setCitas={setCitas}
+                  setCitas={setCitasSolicitadasHoy}
                 />
               )}
             </View>

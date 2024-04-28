@@ -9,7 +9,7 @@ import { citaGestor } from "../styles/global";
 import changeDate from "../../Imagenes/change.png";
 import ModalEdicion from "./modalEdicion";
 
-export function CitasProximas() {
+export function CitasProximas({citas, setCitasProximas}) {
   const [modalEdicionVisible, setModalEdicionVisible] = useState(false);
   const [selectedCita, setselectedCita] = useState(null);
 
@@ -27,56 +27,56 @@ export function CitasProximas() {
     }
   };
 
-  const [citas, setCitas] = useState([
-    {
-      nombre: "Angel Grimaldo ",
-      fecha: "Hoy : 10:45 a.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 1,
-    },
-    {
-      nombre: "Azael Espergencia",
-      fecha: "Hoy : 12:30 p.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 2,
-    },
-    {
-      nombre: "Tilin Gonzalez",
-      fecha: "Mañana : 4:30 p.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 3,
-    },
-    {
-      nombre: "Elon Musk",
-      fecha: "14,4,24 : 10:30 a.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 4,
-    },
-    {
-      nombre: "Gabriel Huicochea",
-      fecha: "Hoy : 10:45 a.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 5,
-    },
-    {
-      nombre: "Azael Hernandez",
-      fecha: "Hoy : 12:30 p.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 6,
-    },
-    {
-      nombre: "Tilin Gonzalez",
-      fecha: "Mañana : 4:30 p.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 7,
-    },
-    {
-      nombre: "Elon Musk",
-      fecha: "14,4,24 : 10:30 a.m",
-      image: require("../../Imagenes/foto.png"),
-      id: 8,
-    },
-  ]);
+  // const [citas, setCitasProximas] = useState([
+  //   {
+  //     nombre: "Angel Grimaldo ",
+  //     fecha: "Hoy : 10:45 a.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 1,
+  //   },
+  //   {
+  //     nombre: "Azael Espergencia",
+  //     fecha: "Hoy : 12:30 p.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 2,
+  //   },
+  //   {
+  //     nombre: "Tilin Gonzalez",
+  //     fecha: "Mañana : 4:30 p.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 3,
+  //   },
+  //   {
+  //     nombre: "Elon Musk",
+  //     fecha: "14,4,24 : 10:30 a.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 4,
+  //   },
+  //   {
+  //     nombre: "Gabriel Huicochea",
+  //     fecha: "Hoy : 10:45 a.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 5,
+  //   },
+  //   {
+  //     nombre: "Azael Hernandez",
+  //     fecha: "Hoy : 12:30 p.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 6,
+  //   },
+  //   {
+  //     nombre: "Tilin Gonzalez",
+  //     fecha: "Mañana : 4:30 p.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 7,
+  //   },
+  //   {
+  //     nombre: "Elon Musk",
+  //     fecha: "14,4,24 : 10:30 a.m",
+  //     image: require("../../Imagenes/foto.png"),
+  //     id: 8,
+  //   },
+  // ]);
 
   return (
     <NativeBaseProvider>
@@ -138,7 +138,7 @@ export function CitasProximas() {
               onClose={closeModal}
               modalVisible={modalEdicionVisible}
               citas={citas}
-              setCitas={setCitas}
+              setCitas={setCitasProximas}
               oldCita={true}
             />
           )}
