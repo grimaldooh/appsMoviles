@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { View, Text, TextInput,Button, TouchableOpacity } from 'react-native';
 import { globalStyles, colors} from '../styles/global';
 import { loginview } from '../styles/login';
@@ -6,6 +7,23 @@ import { useNavigation } from '@react-navigation/native';
 
 function LoginView() {
     const navigation = useNavigation();
+    const [user, setUser] = useState({
+        email: "",
+        password: "",
+    });
+
+    function validateLogin(user) {
+     //   result= llamada a a la api parametro result
+     navigation.navigate('Home');
+       /* if(result){
+            navigation.navigate('Home');
+        }
+        else{
+            alert('Usuario o contraseña incorrectos');
+        }*/
+    }
+
+
     return (
         
         <View style={loginview.container}>
@@ -13,15 +31,17 @@ function LoginView() {
                 style={globalStyles.input}
                 placeholder="Correo electrónico"
                 placeholderTextColor={colors.text}
+                onChangeText={(text) => setUser({ ...user, email: text })}
             />
             <TextInput
                 style={globalStyles.input}
                 placeholder="Contraseña"
                 placeholderTextColor={colors.text}
                 secureTextEntry
+                onChangeText={(text) => setUser({ ...user, password: text })}
             />
             <TouchableOpacity style={[loginview.loginButton, { borderRadius: 25 }]}>
-                <Text onPress={() => navigation.navigate('Home')}>Iniciar sesión</Text>
+                <Text onPress={() => validateLogin(user)}>Iniciar sesión</Text>
             </TouchableOpacity>
             
             

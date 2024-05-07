@@ -41,6 +41,8 @@ export const homeView = StyleSheet.create({
         borderRadius: 30,
         marginTop: 20,
         flexDirection: "row",
-        justifyContent : "space-between" 
+        justifyContent : "space-between" ,
+        //poner sombra al componente
+        shadowColor: '#000',
     },
 });

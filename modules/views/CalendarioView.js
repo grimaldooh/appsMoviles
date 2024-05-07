@@ -144,6 +144,24 @@ function CalendarioView() {
       image: require("../../Imagenes/foto.png"),
       id: 20,
     },
+    {
+      nombre: "Maria Huicochea",
+      fecha: "2024-04-13, 10:45 a.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 21,
+    },
+    {
+      nombre: "Luis Hernandez",
+      fecha: "2024-04-19, 12:30 p.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 22,
+    },
+    {
+      nombre: "Samuel Gonzalez",
+      fecha: "2024-04-28, 4:30 p.m",
+      image: require("../../Imagenes/foto.png"),
+      id: 23,
+    }
     
    
     
@@ -155,7 +173,7 @@ function CalendarioView() {
       <Calendario citas={citas} setCitasProximas={setCitasProximas} />
       
 
-      <Footer />
+      <Footer/>
     </View>
   );
 }

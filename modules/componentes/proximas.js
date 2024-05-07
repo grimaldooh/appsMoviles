@@ -92,6 +92,20 @@ export function CitasProximas({citas, setCitasProximas}) {
                 borderColor: "black",
                 flexDirection: "row",
                 marginTop: 35,
+                shadowColor: "#000",
+                shadowOffset: {
+                  width: 0,
+                 height: 2,
+                },
+                backgroundColor: "white",
+                shadowColor: "#000",
+              shadowOffset: {
+                width: 1,
+                height: 3,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 15,
               },
             ]}
           >

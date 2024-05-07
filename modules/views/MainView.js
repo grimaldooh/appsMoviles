@@ -18,7 +18,7 @@ const Stack = createNativeStackNavigator();
 function MainView() {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Calendario">
+			<Stack.Navigator initialRouteName="Home">
 				<Stack.Screen
 					name="Inicio"
 					component={HomeView}
